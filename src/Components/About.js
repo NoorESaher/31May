@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import image from "../images/image.png";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-export const Hello = () => {
+export const About = () => {
+  let navigate = useNavigate();
+
   const [inputData, setInputData] = useState("");
   const [items, setItems] = useState([]);
   const addItem = () => {
@@ -80,7 +83,13 @@ export const Hello = () => {
 
           {/*Contact Page Button */}
           <div className="newbutton">
-            <Link className="newbutton" to="/Contact">
+            <Link
+              className="newbutton"
+              to="/Contact"
+              onClick={() => {
+                navigate("/Contact");
+              }}
+            >
               Click please
             </Link>
           </div>
@@ -89,4 +98,4 @@ export const Hello = () => {
     </>
   );
 };
-export default Hello;
+export default About;
